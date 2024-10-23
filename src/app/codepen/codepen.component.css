@@ -72,8 +72,10 @@ button:hover {
 .editor {
   padding: 1rem;
   display: flex;
-  background-color: #1e1e1e; /* Editor background */
+  background-color: #1e1e1e; 
+  max-height: 300px; 
 }
+
 
 .line-numbers {
   min-width: 40px;
@@ -90,8 +92,8 @@ textarea {
   height: 200px;
   font-family: monospace;
   font-size: 1rem;
-  background-color: #28282B; /* Dark background for textarea */
-  color: #fff; /* White text */
+  background-color: #28282B;
+  color: #fff; 
   border: none;
   padding: 10px;
   outline: none;
