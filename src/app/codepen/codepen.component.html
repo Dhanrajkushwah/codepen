@@ -1,0 +1,56 @@
+<div class="codepen-container">
+  <div class="theme-toggle">
+    <button (click)="toggleTheme()">
+      {{ isDarkTheme ? 'Switch to Light Theme' : 'Switch to Dark Theme' }}
+    </button>
+  </div>
+
+  <div class="editors-row">
+    <!-- HTML Editor -->
+    <div class="editor-section html-editor">
+      <h2 class="box-title html-editor-title" (click)="toggleHtmlEditor()">
+        <svg viewBox="0 0 15 15" class="file-type-icon">
+          <rect fill="#FF3C41" width="15" height="15" rx="4"></rect>
+        </svg>
+        HTML
+      </h2>
+      <div *ngIf="isHtmlEditorVisible" class="editor">
+        <div class="line-numbers" #htmlLineNumbers></div>
+        <textarea #htmlTextarea [(ngModel)]="htmlCode" (input)="onInputChange(htmlTextarea, htmlLineNumbers)" placeholder="Enter HTML"></textarea>
+      </div>
+    </div>
+
+    <!-- CSS Editor -->
+    <div class="editor-section css-editor">
+      <h2 class="box-title css-editor-title" (click)="toggleCssEditor()">
+        <svg viewBox="0 0 15 15" class="file-type-icon">
+          <rect fill="#0EBEFF" width="15" height="15" rx="4"></rect>
+        </svg>
+        CSS
+      </h2>
+      <div *ngIf="isCssEditorVisible" class="editor">
+        <div class="line-numbers" #cssLineNumbers></div>
+        <textarea #cssTextarea [(ngModel)]="cssCode" (input)="onInputChange(cssTextarea, cssLineNumbers)" placeholder="Enter CSS"></textarea>
+      </div>
+    </div>
+
+    <!-- JavaScript Editor -->
+    <div class="editor-section js-editor">
+      <h2 class="box-title js-editor-title" (click)="toggleJsEditor()">
+        <svg viewBox="0 0 15 15" class="file-type-icon">
+          <rect fill="#FCD000" width="15" height="15" rx="4"></rect>
+        </svg>
+        JavaScript
+      </h2>
+      <div *ngIf="isJsEditorVisible" class="editor">
+        <div class="line-numbers" #jsLineNumbers></div>
+        <textarea #jsTextarea [(ngModel)]="jsCode" (input)="onInputChange(jsTextarea, jsLineNumbers)" placeholder="Enter JavaScript"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-section">
+    <h2>Live Preview</h2>
+    <iframe #iframe></iframe>
+  </div>
+</div>
